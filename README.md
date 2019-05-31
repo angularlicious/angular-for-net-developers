@@ -5,7 +5,7 @@ A discussion about Angular for .NET developers. There are many transferable skil
 > Sample Angular Application: The [GitHub repository](https://github.com/buildmotion/github-search) demonstrates some of the patterns, layers, and project structure that will be familiar to .NET developers. View online: https://github-search-api-with-angular.firebaseapp.com
 
 
-![](github-search-app)
+![](github-search-app.png)
 
 The sample application demonstrates the following:
 
