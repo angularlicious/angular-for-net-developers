@@ -1,0 +1,290 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "web-one": {
+      "root": "apps/web-one/",
+      "sourceRoot": "apps/web-one/src",
+      "projectType": "application",
+      "prefix": "denver",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/web-one",
+            "index": "apps/web-one/src/index.html",
+            "main": "apps/web-one/src/main.ts",
+            "polyfills": "apps/web-one/src/polyfills.ts",
+            "tsConfig": "apps/web-one/tsconfig.app.json",
+            "assets": [
+              "apps/web-one/src/favicon.ico",
+              "apps/web-one/src/assets"
+            ],
+            "styles": ["apps/web-one/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/web-one/src/environments/environment.ts",
+                  "with": "apps/web-one/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "web-one:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "web-one:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-one:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/web-one/tsconfig.app.json",
+              "apps/web-one/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/web-one/jest.config.js",
+            "tsConfig": "apps/web-one/tsconfig.spec.json",
+            "setupFile": "apps/web-one/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "web-one-e2e": {
+      "root": "apps/web-one-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/web-one-e2e/cypress.json",
+            "tsConfig": "apps/web-one-e2e/tsconfig.e2e.json",
+            "devServerTarget": "web-one:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web-one:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/web-one-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "web-two": {
+      "root": "apps/web-two/",
+      "sourceRoot": "apps/web-two/src",
+      "projectType": "application",
+      "prefix": "denver",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/web-two",
+            "index": "apps/web-two/src/index.html",
+            "main": "apps/web-two/src/main.ts",
+            "polyfills": "apps/web-two/src/polyfills.ts",
+            "tsConfig": "apps/web-two/tsconfig.app.json",
+            "assets": [
+              "apps/web-two/src/favicon.ico",
+              "apps/web-two/src/assets"
+            ],
+            "styles": ["apps/web-two/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/web-two/src/environments/environment.ts",
+                  "with": "apps/web-two/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "web-two:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "web-two:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-two:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/web-two/tsconfig.app.json",
+              "apps/web-two/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/web-two/jest.config.js",
+            "tsConfig": "apps/web-two/tsconfig.spec.json",
+            "setupFile": "apps/web-two/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "web-two-e2e": {
+      "root": "apps/web-two-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/web-two-e2e/cypress.json",
+            "tsConfig": "apps/web-two-e2e/tsconfig.e2e.json",
+            "devServerTarget": "web-two:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web-two:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/web-two-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "logging": {
+      "root": "libs/logging",
+      "sourceRoot": "libs/logging/src",
+      "projectType": "library",
+      "prefix": "denver",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/logging/tsconfig.lib.json",
+              "libs/logging/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/logging/jest.config.js",
+            "tsConfig": "libs/logging/tsconfig.spec.json",
+            "setupFile": "libs/logging/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics"
+  },
+  "schematics": {
+    "@nrwl/schematics:application": {
+      "style": "scss"
+    },
+    "@nrwl/schematics:library": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "web-one"
+}
