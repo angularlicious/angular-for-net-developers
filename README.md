@@ -2,6 +2,19 @@
 
 A discussion about Angular for .NET developers. There are many transferable skills that make .NET developers excellent Angular developers. 
 
+> Sample Angular Application: The [github-search application](https://github.com/buildmotion/github-search) demonstrates some of the patterns, layers, and project structure that will be familiar to .NET developers.
+
+
+The sample application demonstrates the following:
+
+* a solution approach using Angular Workspace
+* using shared library projects
+  * cross-cutting concern libraries
+  * rule engine
+* a solution with application projects (Single-page Application)
+* service and business logic layers
+* reactive programming using Rxjs
+
 ## TypeScript
     
 * Microsoft
